@@ -26,7 +26,7 @@ class PlayingCardView: UIView {
         return centeredAttributedString(rankString+"\n"+suit, fontSize: cornerFontSize)
     }
     private lazy var upperLeftCornerLabel = createCornerLabel()
-    private lazy var lowerRightCornerLabe  = createCornerLabel()
+    private lazy var lowerRightCornerLabel  = createCornerLabel()
     
     private func createCornerLabel()-> UILabel {
         let label  = UILabel()
@@ -34,10 +34,31 @@ class PlayingCardView: UIView {
         addSubview(label)
         return label
     }
+    private func configureCornerLabel(_ label :  UILabel){
+        label.attributedText = cornerString
+        label.frame.size = CGSize.zero
+        label.sizeToFit()
+        label.isHidden = !isFaceUp
+    }
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        setNeedsLayout()
+        setNeedsDisplay()
+    }
+    
+    //setNeedsLayout() will call next func
     override func layoutSubviews() {
         super.layoutSubviews()
-        upperLeftCornerLabel.frame.origin = bounds.origin
+        configureCornerLabel(upperLeftCornerLabel)
+        upperLeftCornerLabel.frame.origin = bounds.origin.offsetBy(dx: cornerOffset, dy: cornerOffset)
+        configureCornerLabel(lowerRightCornerLabel)
+        lowerRightCornerLabel.transform = CGAffineTransform.identity
+        .translatedBy(x: lowerRightCornerLabel.frame.size.width, y: lowerRightCornerLabel.frame.size.height)
+        .rotated(by: CGFloat.pi)
+        lowerRightCornerLabel.frame.origin = CGPoint(x: bounds.maxX, y: bounds.maxY)
+        .offsetBy(dx: -cornerOffset, dy: -cornerOffset)
+        .offsetBy(dx: -lowerRightCornerLabel.frame.width, dy: -lowerRightCornerLabel.frame.size.height)
     }
+    //setNeedsDisplay() will call next function
     override func draw(_ rect: CGRect) {
         let roundedRect = UIBezierPath(roundedRect: bounds, cornerRadius:  cornerRadius)
         roundedRect.addClip()
@@ -102,7 +123,20 @@ extension PlayingCardView{
     }
 }
 extension CGRect{
-    
+    var leftHalf : CGRect{
+        return CGRect(x: minX, y: minY, width: width/2, height: height)
+    }
+    var rightHalf : CGRect{
+        return CGRect(x: midX, y: minY, width: width/2, height: height)
+    }
+    func inset(to size: CGSize)->CGRect{
+        return CGRect(origin: origin, size: size)
+    }
+    func zoom(by scale : CGFloat)-> CGRect{
+        let newWidth = width * scale
+        let newHeigth  = height * scale
+        return insetBy(dx: (width - newWidth)/2, dy: (height - newHeigth)/2)
+    }
 }
 extension CGPoint{
     func offsetBy(dx: CGFloat,dy: CGFloat)->CGPoint{
