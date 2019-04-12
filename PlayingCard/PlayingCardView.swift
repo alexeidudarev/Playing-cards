@@ -88,7 +88,7 @@ class PlayingCardView: UIView {
                 drawPips()
             }
         }else{
-            if let cardBackImage = UIImage(named: "backimage", in : Bundle(for: self.classForCoder),compatibleWith: traitCollection){
+            if let cardBackImage = UIImage(named: "cardback", in : Bundle(for: self.classForCoder),compatibleWith: traitCollection){
                 cardBackImage.draw(in: bounds)
             }
         }

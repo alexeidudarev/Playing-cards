@@ -15,6 +15,7 @@
 		C30F202E224E4764001B0E2C /* PlayingCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30F202D224E4764001B0E2C /* PlayingCard.swift */; };
 		C30FDE05224E5503006AFE06 /* PlayingCardDeck.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30FDE04224E5503006AFE06 /* PlayingCardDeck.swift */; };
 		C30FDE07224E61B6006AFE06 /* PlayingCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30FDE06224E61B6006AFE06 /* PlayingCardView.swift */; };
+		C312B0C522601938001FC8FE /* CradBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = C312B0C422601938001FC8FE /* CradBehavior.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		C30F202D224E4764001B0E2C /* PlayingCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayingCard.swift; sourceTree = "<group>"; };
 		C30FDE04224E5503006AFE06 /* PlayingCardDeck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayingCardDeck.swift; sourceTree = "<group>"; };
 		C30FDE06224E61B6006AFE06 /* PlayingCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayingCardView.swift; sourceTree = "<group>"; };
+		C312B0C422601938001FC8FE /* CradBehavior.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CradBehavior.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 			children = (
 				C30F202C224E4600001B0E2C /* Supporting Files */,
 				C30F201C224E45D6001B0E2C /* ViewController.swift */,
+				C312B0C422601938001FC8FE /* CradBehavior.swift */,
 				C30F201E224E45D6001B0E2C /* Main.storyboard */,
 				C30F2023224E45D9001B0E2C /* LaunchScreen.storyboard */,
 				C30F2026224E45D9001B0E2C /* Info.plist */,
@@ -155,6 +158,7 @@
 				C30F201D224E45D6001B0E2C /* ViewController.swift in Sources */,
 				C30FDE05224E5503006AFE06 /* PlayingCardDeck.swift in Sources */,
 				C30F202E224E4764001B0E2C /* PlayingCard.swift in Sources */,
+				C312B0C522601938001FC8FE /* CradBehavior.swift in Sources */,
 				C30FDE07224E61B6006AFE06 /* PlayingCardView.swift in Sources */,
 				C30F201B224E45D6001B0E2C /* AppDelegate.swift in Sources */,
 			);
